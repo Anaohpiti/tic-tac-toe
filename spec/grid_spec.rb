@@ -1,7 +1,7 @@
 require "grid"
 
-RSpec.describe Grid do
-  let(:grid) { Grid.new }
+RSpec.describe Morpion::Grid do
+  let(:grid) { described_class.new }
   
   context "when game starts" do
     it { expect { grid.print }.to output("   |   |   \n   |   |   \n   |   |   \n").to_stdout }
@@ -17,7 +17,7 @@ RSpec.describe Grid do
       grid.insert_token(0, "x")
     end
     
-    it { expect { grid.insert_token(0, "x") }.to raise_error("Location contains a token. Please retry with an empty slot.")}   
+    it { expect { grid.insert_token(0, "x") }.to raise_error("L'emplacement contient un jeton. Veuillez réessayer avec un emplacement vide.")}   
   end
   
   context "the computeur identifies a winning situation" do
